@@ -68,28 +68,17 @@ export default function LogCard({ log, onReview }: LogCardProps) {
         <div className="mb-4">
           <div className="flex justify-between items-center mb-1">
             <div className="text-xs text-muted-foreground">Privilege List</div>
-            <button 
-              className="p-1 hover:bg-gray-700 rounded text-xs text-muted-foreground flex items-center"
-              onClick={() => setPrivilegesVisible(!isPrivilegesVisible)}
-            >
-              <span className="mr-1">{isPrivilegesVisible ? 'Hide' : 'Show'}</span>
-              <ChevronDown 
-                className={`h-3 w-3 transition-transform ${isPrivilegesVisible ? 'rotate-180' : ''}`}
-              />
-            </button>
           </div>
           
-          {isPrivilegesVisible && (
-            <div className="privileges-container">
-              <ul className="list-disc pl-5 text-xs space-y-1">
-                {log["privilege list"].map((privilege, index) => (
-                  <li key={index} className="text-json-string">
-                    {privilege}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div className="privileges-container mt-2 bg-[hsl(220,47%,8%)] p-3 rounded border border-gray-800">
+            <ul className="list-none text-xs space-y-1.5 font-mono">
+              {log["privilege list"].map((privilege, index) => (
+                <li key={index} className="text-json-string">
+                  &quot;{privilege}&quot;{index < log["privilege list"].length - 1 ? ',' : ''}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         
         <div className="mb-4">
