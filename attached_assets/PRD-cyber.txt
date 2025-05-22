@@ -1,0 +1,152 @@
+# **Product Requirements Document (PRD)**
+
+## Project: Cybersecurity Log Review Dashboard
+
+**Owner:** \[Your Name]
+**Date:** \[Insert Date]
+**Version:** 1.0
+
+---
+
+## **Overview**
+
+This web application enables cybersecurity analysts to review structured JSON logs related to privilege escalation or anomalous account activity. Each log can be marked as a **true positive** or **false positive**. The interface is designed to be **minimal, modern**, and optimized for **fast triage** during threat analysis.
+
+---
+
+## **Goals**
+
+* Provide a fast and clean interface for reviewing logs
+* Ensure accurate visibility into high-risk activities (e.g., privilege escalation)
+* Allow analysts to flag each entry as **True Positive (TP)** or **False Positive (FP)**
+* Enable real-time extension by ingesting new log entries dynamically
+* Maintain visual clarity and cognitive ease with professional, readable JSON display
+
+---
+
+## **Target Users**
+
+* Cybersecurity analysts and SOC (Security Operations Center) teams
+* Incident responders and threat hunters
+
+---
+
+## **Data Structure (per log entry)**
+
+Each incoming log is a JSON object with the following fields:
+
+```json
+{
+  "log_id": "string (unique)",
+  "timestamp": "ISO 8601 format",
+  "username": "string",
+  "user domain": "string",
+  "source ip": "string",
+  "privilege list": [ "array of privilege strings" ],
+  "reason": "string",
+  "model type": "string"
+}
+```
+
+---
+
+## **Key Features**
+
+### 1. **UI Layout**
+
+* **Sticky Header** with app name and team logo (optional)
+* A **button** to simulate ingesting new log data (for dev or demo mode)
+* A **scrollable list of log cards**, each with:
+
+  * Clearly formatted JSON (expandable sections for readability)
+  * Bold labels for key identifiers (log ID, timestamp, username)
+  * Two buttons at the bottom:
+
+    * ✅ **True Positive**
+    * ❌ **False Positive**
+
+---
+
+### 2. **Interaction Design**
+
+* **Single-click classification**: Clicking a button logs the analyst’s decision
+* After decision:
+
+  * Highlight selected button (e.g., green/red with bold)
+  * Fade out and disable the unselected button
+  * Log card disappears after 300ms delay (optional fade-out animation)
+* Allow continuous stacking of new entries as they come in
+
+---
+
+### 3. **Styling & UX**
+
+* **Dark mode friendly** (optional)
+* Minimal padding, clean monospaced font for JSON
+* Responsive design: supports large monitors for SOC dashboards
+* Subtle hover effects and button transitions for visual feedback
+* Clean borders and shadows for card separation
+* Color palette:
+
+  * Background: `#f8fafc` or `#111827` (dark mode)
+  * JSON viewer: white or near-black card
+  * Buttons: green/red with slight gradients and shadows
+
+---
+
+## **Empty State**
+
+* Show friendly message:
+
+  > "No suspicious logs pending review. Monitoring in progress..."
+
+---
+
+## **Non-Functional Requirements**
+
+* Built using **React + Tailwind CSS** (recommended stack)
+* JSON viewer should support expand/collapse for nested structures
+* State managed using `useState` or lightweight global store (e.g., Zustand if scaling)
+* Frontend-only for now (simulated JSON feed), but future-ready for WebSocket/API integration
+
+---
+
+## **Future Extensions (Not in Scope Now)**
+
+* User authentication for audit trail
+* Log filtering by domain, privilege, source IP
+* Export reviewed entries (CSV/JSON)
+* Integration with SIEM systems (Splunk, Sentinel, etc.)
+
+---
+
+## **Sample Mockup (Text Description)**
+
+* **Top Section**:
+  `[Button] Simulate Incoming Log`
+  *(Centered, full-width on small screens)*
+
+* **Log Card**:
+
+  ```
+  [LOG ID] 1234-5678
+  [Timestamp] 2025-04-20T14:32:24.555Z
+  [Username] i123456789
+  [User Domain] THAIBEV
+  [Source IP] 10.7.143.136
+  [Privileges] Expandable JSON
+  [Reason] New user detected
+  [Model Type] Anomaly detection model from 4672 event id.
+  ```
+
+  \[✅ True Positive]   \[❌ False Positive]
+
+---
+
+Let me know if you’d like:
+
+* A React/Next.js starter for this
+* Tailwind component implementation
+* Integration with a backend or real-time feed
+
+I can also generate a visual wireframe or image-based mockup if needed.
