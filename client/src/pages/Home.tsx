@@ -71,60 +71,28 @@ export default function Home() {
 
 // Helper function to generate random logs for demo purposes
 function generateRandomLog(): Log {
-  const sampleLogs: Log[] = [
-    {
-      "log_id": `LOG-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`,
-      "timestamp": new Date().toISOString(),
-      "username": "i123456789",
-      "user domain": "THAIBEV",
-      "source ip": "10.7.143.136",
-      "privilege list": [
-        "SeDelegateSessionUserImpersonatePrivilege",
-        "SeTakeOwnershipPrivilege",
-        "SeDebugPrivilege",
-        "SeImpersonatePrivilege",
-        "SeEnableDelegationPrivilege",
-        "SeSecurityPrivilege",
-        "SeBackupPrivilege",
-        "SeRestorePrivilege",
-        "SeLoadDriverPrivilege",
-        "SeSystemEnvironmentPrivilege"
-      ],
-      "reason": "New user detected",
-      "model type": "Anomaly detection model from 4672 event id."
-    },
-    {
-      "log_id": `LOG-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`,
-      "timestamp": new Date().toISOString(),
-      "username": "j987654321",
-      "user domain": "THAIBEV",
-      "source ip": "10.7.156.42",
-      "privilege list": [
-        "SeImpersonatePrivilege",
-        "SeSecurityPrivilege",
-        "SeBackupPrivilege",
-        "SeRestorePrivilege"
-      ],
-      "reason": "Unusual login time detected",
-      "model type": "Temporal anomaly detection model"
-    },
-    {
-      "log_id": `LOG-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`,
-      "timestamp": new Date().toISOString(),
-      "username": "admin_svc",
-      "user domain": "THAIBEV",
-      "source ip": "192.168.1.24",
-      "privilege list": [
-        "SeTakeOwnershipPrivilege",
-        "SeDebugPrivilege",
-        "SeImpersonatePrivilege",
-        "SeLoadDriverPrivilege",
-        "SeSystemEnvironmentPrivilege"
-      ],
-      "reason": "Privilege escalation attempt",
-      "model type": "Behavior-based detection"
-    }
-  ];
-
-  return { ...sampleLogs[Math.floor(Math.random() * sampleLogs.length)] };
+  const logId = Math.random().toString(36).substring(2, 8);
+  
+  // Exact data format from the provided image
+  return {
+    "log_id": logId,
+    "timestamp": "2025-04-20T14:32:24.555Z",
+    "username": "i123456789",
+    "user domain": "THAIBEV",
+    "source ip": "10.7.143.136",
+    "privilege list": [
+      "SeDelegateSessionUserImpersonatePrivilege",
+      "SeTakeOwnershipPrivilege",
+      "SeDebugPrivilege",
+      "SeImpersonatePrivilege",
+      "SeEnableDelegationPrivilege",
+      "SeSecurityPrivilege",
+      "SeBackupPrivilege",
+      "SeRestorePrivilege",
+      "SeLoadDriverPrivilege",
+      "SeSystemEnvironmentPrivilege"
+    ],
+    "reason": "New user detected",
+    "model type": "Anomaly detection model from 4672 event id."
+  };
 }

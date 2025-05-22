@@ -108,7 +108,7 @@ export default function LogCard({ log, onReview }: LogCardProps) {
           
           {isJsonVisible && (
             <pre 
-              className="json-viewer bg-[hsl(var(--json-bg))] p-3 rounded text-xs overflow-x-auto"
+              className="json-viewer bg-[hsl(var(--json-bg))] p-3 rounded text-xs overflow-x-auto font-mono leading-relaxed"
               dangerouslySetInnerHTML={{ __html: syntaxHighlight(JSON.stringify(log, null, 2)) }}
             ></pre>
           )}

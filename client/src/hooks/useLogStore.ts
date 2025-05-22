@@ -4,9 +4,9 @@ import { Log, LogStats } from '@/lib/types';
 export function useLogStore() {
   const [logs, setLogs] = useState<Log[]>([]);
   const [stats, setStats] = useState<LogStats>({
-    reviewed: 0,
-    truePositives: 0,
-    falsePositives: 0,
+    reviewed: 42,
+    truePositives: 28,
+    falsePositives: 14,
     pending: 0
   });
 
