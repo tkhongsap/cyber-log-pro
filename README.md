@@ -1,92 +1,97 @@
-# cyber-log-pro
+# Cyber Log Pro
 
+A modern cybersecurity log analysis and review dashboard. This application helps security professionals to track, analyze, and respond to security events detected by anomaly detection models.
 
+## Overview
 
-## Getting started
+Cyber Log Pro provides a streamlined interface for security analysts to:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- View and analyze security log entries that have been flagged by detection models
+- Review and classify security events as true or false positives
+- Track statistics of reviewed logs
+- Easily ingest and process new security logs
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Tech Stack
 
-## Add your files
+- **Frontend**: React with TypeScript, Tailwind CSS, shadcn/ui components
+- **Backend**: Express.js with TypeScript
+- **State Management**: Custom React hooks and client-side state
+- **Routing**: Wouter for lightweight client-side routing
+- **API Communication**: Tanstack React Query
+- **CSS Framework**: Tailwind CSS with various UI component libraries
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Project Structure
 
 ```
-cd existing_repo
-git remote add origin https://gitlabii.thaibevapp.com/thaibev-ai/ai-mvp-lab/cyber-log-pro.git
-git branch -M master
-git push -uf origin master
+cyber-log-pro/
+├── client/                 # Frontend React application
+│   └── src/
+│       ├── components/     # Reusable UI components
+│       │   └── ui/         # shadcn/ui components
+│       ├── hooks/          # Custom React hooks
+│       ├── lib/            # Utility functions and types
+│       ├── pages/          # Page components
+│       ├── App.tsx         # Main application component
+│       └── main.tsx        # Application entry point
+├── server/                 # Express.js backend
+│   ├── index.ts            # Server entry point and configuration
+│   ├── routes.ts           # API route definitions
+│   ├── storage.ts          # Data storage utilities
+│   └── vite.ts             # Vite configuration for server
+└── shared/                 # Shared code between client and server
 ```
 
-## Integrate with your tools
+## Getting Started
 
-- [ ] [Set up project integrations](https://gitlabii.thaibevapp.com/thaibev-ai/ai-mvp-lab/cyber-log-pro/-/settings/integrations)
+### Prerequisites
 
-## Collaborate with your team
+- Node.js (v16 or higher)
+- npm or yarn
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Installation
 
-## Test and Deploy
+1. Clone the repository:
+   ```
+   git clone https://github.com/tkhongsap/cyber-log-pro.git
+   ```
 
-Use the built-in continuous integration in GitLab.
+2. Install dependencies:
+   ```
+   cd cyber-log-pro
+   npm install
+   ```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+3. Start the development server:
+   ```
+   npm run dev
+   ```
 
-***
+4. The application will be available at `http://localhost:5000`
 
-# Editing this README
+## Development
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Available Scripts
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- `npm run dev` - Start the development server
+- `npm run build` - Build the production application
+- `npm run start` - Start the production server
+- `npm run check` - Run TypeScript type checking
+- `npm run db:push` - Update the database schema (when applicable)
 
-## Name
-Choose a self-explaining name for your project.
+## Features
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+- **Log Review Interface**: Intuitive cards for reviewing security events
+- **Classification System**: Mark logs as true or false positives
+- **Statistics Dashboard**: Track the number of reviewed logs
+- **Notification System**: Get feedback on actions taken
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Project Status
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Active development and contributions are welcome.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Repository Information
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+This project is managed with Git and hosted on both GitHub and GitLab:
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- GitHub: https://github.com/tkhongsap/cyber-log-pro.git
+- GitLab: https://git.lab.tcctech.app/ds-and-ml-research-sandbox/research-repos/cybersecurity/cybersecuity-log-frontend.git
