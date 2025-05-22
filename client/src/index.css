@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 220 26% 18%;
+  --card-foreground: 210 40% 98%;
+  --popover: 220 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217 91% 53%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 220 26% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 220 26% 18%;
+  --muted-foreground: 215 16% 74%;
+  --accent: 220 26% 18%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --success: 142 71% 45%;
+  --success-foreground: 210 40% 98%;
+  --border: 215 28% 17%;
+  --input: 215 28% 17%;
+  --ring: 216 34% 17%;
+  --radius: 0.5rem;
+
+  /* JSON viewer colors */
+  --json-bg: 222 47% 11%;
+  --json-key: 160 84% 39%;
+  --json-string: 330 81% 60%;
+  --json-number: 35 92% 51%;
+  --json-boolean: 250 91% 58%;
+}
+
+.dark {
+  --background: 220 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 220 26% 18%;
+  --card-foreground: 210 40% 98%;
+  --popover: 220 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217 91% 53%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 220 26% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 220 26% 18%;
+  --muted-foreground: 215 16% 74%;
+  --accent: 220 26% 18%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --success: 142 71% 45%;
+  --success-foreground: 210 40% 98%;
+  --border: 215 28% 17%;
+  --input: 215 28% 17%;
+  --ring: 216 34% 17%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .json-viewer {
+    @apply font-mono text-sm leading-relaxed;
+  }
+
+  .json-key {
+    @apply text-emerald-500;
+  }
+
+  .json-string {
+    @apply text-pink-500;
+  }
+
+  .json-number {
+    @apply text-amber-500;
+  }
+
+  .json-boolean {
+    @apply text-indigo-500;
+  }
+
+  .json-null {
+    @apply text-indigo-500;
+  }
+
+  .fade-out {
+    animation: fadeOut 0.3s ease-in-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+}
