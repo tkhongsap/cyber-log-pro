@@ -73,10 +73,10 @@ export default function Home() {
 function generateRandomLog(): Log {
   const logId = Math.random().toString(36).substring(2, 8);
   
-  // Exact data format from the provided image
+  // Exact data format from the provided image, including correct timestamp
   return {
     "log_id": logId,
-    "timestamp": "2025-04-20T14:32:24.555Z",
+    "timestamp": new Date().toISOString(),
     "username": "i123456789",
     "user domain": "THAIBEV",
     "source ip": "10.7.143.136",
